@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: main
+      author: paulouskiyulyan@gmail.com
+      changes:
+  - include:
+      - file: db\changelogs\2024-12-30_create-articles-table.yaml
+  - include:
+      - file: db\changelogs\2024-12-30_create-users-table.yaml
+  - include:
+      - file: db\changelogs\2024-12-30_create-comments-table.yaml

@@ -1,0 +1,25 @@
+services:
+
+  database:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    container_name: postgreSQL
+    environment:
+      - POSTGRES_DB=forum_db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+
+  forum:
+    build:
+      dockerfile: Dockerfile
+    container_name: forum
+    ports:
+      - 8080:8080
+    environment:
+      DB_URL: jdbc:postgresql://database:5432/forum_db
+      DB_USER: root
+      DB_PASSWORD: root
+      FORUM_PORT: 8080
+    depends_on:
+      - database
