@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: addUsersTable
+      author: paulouskiyulyan@gmail.com
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_users
+
+              - column:
+                  name: username
+                  type: varchar(30)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true

@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: addArticlesTable
+      author: paulouskiyulyan@gmail.com
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: articles
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_articles
+              - column:
+                  name: title
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: text
+                  constraints:
+                    nullable: false
